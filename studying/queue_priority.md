@@ -111,3 +111,25 @@ funcA();
 2. promise
 3. script ends
 4. setTimeout
+
+
+### 코드 실행 결과에 대해...
+1. 비동기 함수인 promise와 setTimeout이 JS엔진에서 바로 실행되지 않고 큐에 쌓였다가 콜스택이 비면 실행될 것이란 점은 예상 가능.
+
+2. 그럼 
+
+    console.log('script starts') -> 
+    
+    console.log('script ends') -> 
+    
+    promise -> 
+    
+    setTimeout
+    
+    일까?
+
+3. 잡큐의 특징 중 상위 함수가 종료되기 전 콜스택이 비지 않더라도 잡큐의 콜백을 콜스택에 추가한다는 점을 확인해보고 싶음
+
+3. promise의 상위함수는 funcB이고 이 함수의 종료는 마지막 funcE까지 모두 실행시켰을때임.
+
+4. 콜스택에 funcA의 첫번째 태스크가 올라갔다 실행되고 funcB의 두 비동기 함수들은 모두 각자의 큐에 보내지고 funcE가 콜스택에 올라가기 전에 우선순위가 높은 잡큐인 promise가 먼저 콜스택에 올라가 실행됨. 이후 funcE가 콜스택에 올라오고 실행되고 나면 더이상 콜스택에 funcA가 실행할 작업은 남아있지 않게됨. 이렇게 콜스택이 비게 되면 태스크큐의 작업인 setTimeout이 콜스택에 올라가게 됨.
