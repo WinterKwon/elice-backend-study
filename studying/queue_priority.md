@@ -79,6 +79,7 @@ funcA();
 
 
 * ps
+
 setTimeout과 promise의 위치 바꿔보면?
 ```javascript
  function funcA(){
