@@ -1,11 +1,45 @@
-// nodejs로 http서버 만들기
+//login 화면만들기
+// express 서버 만든 것 가져오기
 
-const http = require('http')
 
-http.createServer((request, response) => {
-    response.statusCode = 200;
-    response.setHeader('Content-Type', 'text/plain');
-    response.end('Hello World');
-}).listen(3002);
+const express = require("express");
+const app = express();
+app.get('/', (req, res )=>{
+    res.send(
+        `<!DOCTYPE html>
+        <html lang="ko"> 
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+        </head>
+        <body>
+            여기는 루트입니다.
+        </body>
+        </html>`
 
-console.log('Server running at http://127.0.0.1:3002/')
+    )
+
+});
+
+app.get('/login', (req,res) =>{
+    res.send(
+        `<!DOCTYPE html>
+        <html lang="ko"> 
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+        </head>
+        <body>
+            <input type="text" placeholder = "아이디"><br>
+            <input type="text" placeholder = "비밀번호"><br>
+            <button>로그인</button>
+        </body>
+        </html>`)
+});
+app.listen(3003, ()=> {
+    console.log("서버 가동");
+});
