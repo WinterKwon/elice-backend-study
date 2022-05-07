@@ -1,45 +1,26 @@
 //login 화면만들기
-// express 서버 만든 것 가져오기
+//express 서버 만든 것 가져오기
+
 
 
 const express = require("express");
 const app = express();
-app.get('/', (req, res )=>{
-    res.send(
-        `<!DOCTYPE html>
-        <html lang="ko"> 
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Document</title>
-        </head>
-        <body>
-            여기는 루트입니다.
-        </body>
-        </html>`
 
-    )
+//앱 세팅
+//npm install ejs -s 
+app.set("views", "studying/views");
+app.set("view engine", "ejs");
+
+
+app.get('/', (req, res )=>{
+    res.render("home/index")   
 
 });
 
 app.get('/login', (req,res) =>{
-    res.send(
-        `<!DOCTYPE html>
-        <html lang="ko"> 
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Document</title>
-        </head>
-        <body>
-            <input type="text" placeholder = "아이디"><br>
-            <input type="text" placeholder = "비밀번호"><br>
-            <button>로그인</button>
-        </body>
-        </html>`)
+    res.render("home/login")
 });
+
 app.listen(3003, ()=> {
     console.log("서버 가동");
 });
