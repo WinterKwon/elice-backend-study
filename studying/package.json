@@ -1,0 +1,21 @@
+{
+  "name": "studying",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "bin": {
+    "studying": "bin/www.js"
+  },
+  "scripts": {
+    "script" : "node ./bin/www.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "",
+  "repository": {
+    "type":"git",
+    "url":""
+  }
+}
