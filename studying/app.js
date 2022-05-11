@@ -18,7 +18,10 @@ app.set("view engine", "ejs");  //뷰 엔진은 ejs로 하겠다 -> npm install 
 const home = require("./routes/home");  // 루트 경로로 오면 home으로 이동하도록 경로 설정
 app.use("/", home);  //.use()는 middleware등록 매서드
 
-app.listen(PORT, ()=> {
-    console.log("서버 가동");
-});
 
+//bin/www/js로 분리
+// app.listen(PORT, ()=> {
+//     console.log("서버 가동");
+// });
+
+module.exports = app;
