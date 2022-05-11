@@ -3,14 +3,12 @@
 const express = require("express");
 const router = express.Router();
 
-router.get('/', (req, res )=>{
-    res.render("home/index")   
+const control = require('./home.ctrl');
 
-});
+router.get('/', control.hello);
 
-router.get('/login', (req,res) =>{
-    res.render("home/login")
-});
+
+router.get('/login', control.login);
 
 
 module.exports = router;  //외부에서도 사용할 수 있도록
