@@ -14,6 +14,9 @@ const app = express();
 
 app.set("views", "./src/views"); //views는 studying/views를 기본 경로로 하겠다
 app.set("view engine", "ejs");  //뷰 엔진은 ejs로 하겠다 -> npm install  필요
+//javascript의 login.js를 views/home/login.ejs와 연결위해 미들웨어 사용
+app.use(express.static(`${__dirname}/src/public`))
+
 
 const home = require("./src/routes/home");  // 루트 경로로 오면 home으로 이동하도록 경로 설정
 app.use("/", home);  //.use()는 middleware등록 매서드
