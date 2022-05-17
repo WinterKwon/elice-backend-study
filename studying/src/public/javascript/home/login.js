@@ -17,5 +17,19 @@ async function login(){
         password : pw.value
     }
 
-    console.log(req);
+    // console.log(req);
+    // console.log(JSON.stringify(req));
+    // console.log(req,JSON.stringify(req) ); //json객체는 문자열로 감싸져 있음 확인
+
+    //서버에 데이터 보내기 -> fetch 이용
+    //서버개발자가 어떤 경로에서 주고 받을지 미리 설계해야함
+    fetch('/login', {
+        method : 'POST',
+        headers : {
+            'Content-Type':'application/json',
+        },
+        body: JSON.stringify(req)  
+    });
+    
+
 }
