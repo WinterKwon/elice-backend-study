@@ -29,7 +29,9 @@ async function login(){
             'Content-Type':'application/json',
         },
         body: JSON.stringify(req)  
-    });
-    
+    }).then(res => res.json())
+    // .then(res => console.log(res));
+    .then(console.log); // 인자가 하나일때는 이렇게도 쓸 수 있다.
+
 
 }
