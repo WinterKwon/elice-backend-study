@@ -30,8 +30,18 @@ async function login(){
         },
         body: JSON.stringify(req)  
     }).then(res => res.json())
-    // .then(res => console.log(res));
-    .then(console.log); // 인자가 하나일때는 이렇게도 쓸 수 있다.
+    .then( res => {
+        if(res.success){
+            location.href = '/';
+        } else {
+            alert(res.msg);
+        }
+    })
+    .catch(err=>{
+        console.error(new Error('로그인중 에러발생'));  // 그냥 console.error('로그인중 에러발생') 하면 콘솔에서 ERROR이란 지시어가 없이 나온다
+        //이 에러메시지 확인하려면 라우팅에서 이 경로를 주석처리하고 실행해보면 된다
+    })
+    
 
 
 }
