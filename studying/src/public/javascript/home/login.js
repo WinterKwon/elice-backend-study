@@ -5,7 +5,7 @@
 
 const id = document.querySelector('#id'),
  pw = document.querySelector('#password'),
- loginBtn = document.querySelector('button');
+ loginBtn = document.querySelector('#button');
 
 // console.log(id); //defer 기능 확인하기
 loginBtn.addEventListener('click', login);
