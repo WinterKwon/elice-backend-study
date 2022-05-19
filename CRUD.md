@@ -3,7 +3,7 @@
 
 * 코드레벨에서 스키마 관리할 수 있다
 
-* populate으로 RDBMS의 join 기능 구현
+* populate()으로 RDBMS의 join 기능 구현
     
     그러나 populate는 메모리를 많이 차지하는 연산이다. populate를 자주 사용하는 건 NoSQL의 장점을 상쇄한다. 
 
@@ -78,7 +78,7 @@ npm i mongoose-auto-increment
 ```
 const autoIncrement = require('mongoose-auto-increment');
 
-//autoincrement는 사용히 접속 초기화를 한번 해줘야 한다
+//autoincrement는 사용시 접속 초기화를 한번 해줘야 한다
 autoIncrement.initialize(mongoose);
 
 const blog = new Schema({
@@ -140,9 +140,12 @@ mongoose.connect(MONGO_URL, {useNewUrlParser:true,
 #.env파일에 포트 및 url 정보 은닉
 
 4. 모델 사용
+<<<<<<< HEAD
 
 ### 요약하자면 
 > 1. 스키마정의
 > 2. 모델 생성
 > 3. DB 연결
 > 4. 모델 사용
+=======
+>>>>>>> 4709714626be0b59bafc597810953b71007da791
