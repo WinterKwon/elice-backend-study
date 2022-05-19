@@ -6,12 +6,17 @@ class User {
     }
 
     login() {
-        const {id, password} = UserStorage.getUsers("id","password");
-        // console.log(id, password);
+        const {id, password} = UserStorage.getUserInfo(this.body.id);
 
-        if(id ===this.body.id && password === this.body.password) {
-            
+        if (id) {
+            if(id ===this.body.id && password === this.body.password) {
+                return {success : true};
+    
+             }
+             return {success: false, msg : "비밀번호가 틀렸습니다"}
         }
+        return {success:false, msg: "존재하지 않는 아이디입니다."}
+      
     }
 }
 

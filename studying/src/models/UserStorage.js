@@ -10,22 +10,34 @@ class UserStorage {
     }
 
     static getUsers(...fields){  
-        //클래스자체에서도 메서드에 접근하기 위해 static.
-        // console.log('필드 : ',fields);
+       
         const users =  this.#users;
         const newUsers = fields.reduce((newUsers, field) =>{
-            // console.log(newUsers, field)
+            
             if(users.hasOwnProperty(field)){
                 newUsers[field] = users[field];
             }
             return newUsers;
         },{});
-        // console.log(newUsers);
+       
         return newUsers;
     }
+
+    static getUserInfo (id) {
+        const users = this.#users;
+        const idx = users.id.indexOf(id);
+        const userInfo = Object.keys(users).reduce((newUser, info)=>{
+            newUser[info] = users[info][idx];
+            return newUser;
+        }, {});
+
+        return userInfo;
+
+
+    }
+
 }
-//static붙여 정적 변수로 만들어주면 클래스자체에서 정적변수에 접근할 수 있다
-//routes/home/home.ctrl.js에서 호출할때 require()후에 따로 new로 생성해주지 않아도 바로 변수인 users에 접근할 수 있다.
+
 
 
 module.exports = UserStorage;
