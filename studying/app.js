@@ -26,11 +26,5 @@ const home = require("./src/routes/home");  // 루트 경로로 오면 home으�
 app.use("/", home);  //.use()는 middleware등록 매서드
 
 
-//bin/www/js로 분리
-// app.listen(PORT, ()=> {
-//     console.log("서버 가동");
-// });
-// app.listen(3003, ()=>{
-//     console.log("conntected to server")
-// })
+
 module.exports = app;
