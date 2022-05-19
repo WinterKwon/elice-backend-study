@@ -105,6 +105,10 @@ blog.plugin(autoIncrement.plugin, {
 (3) ObjectId 이용
 
 populate()동작하려면 ObjectId를 써야한다.
+
+>ObjectId는 mongoDB의 BSON 타입중 하나이다.
+mongoDB의 각 document는 primary key로 작동하는 _id 필드가 있다. 생략해도 mongoDB가 자동으로 _id용 ObjectId를 생성해준다.
+https://www.mongodb.com/docs/v4.4/reference/bson-types/#std-label-objectid
 ```
 const PostSchema = new Schema({
   title: {
@@ -136,3 +140,9 @@ mongoose.connect(MONGO_URL, {useNewUrlParser:true,
 #.env파일에 포트 및 url 정보 은닉
 
 4. 모델 사용
+
+### 요약하자면 
+> 1. 스키마정의
+> 2. 모델 생성
+> 3. DB 연결
+> 4. 모델 사용
