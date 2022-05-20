@@ -35,6 +35,17 @@ class UserStorage {
 
 
     }
+    
+    //register.js에서 넘어온 데이터 저장
+    static save(userinfo){
+        const users = this.#users;
+        users.id.push(userinfo.id);
+        users.name.push(userinfo.name);
+        users.password.push(userinfo.password);
+        // console.log(users);
+        return {success:true}; 
+
+    }
 
 }
 
