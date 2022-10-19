@@ -142,10 +142,9 @@ mongoose.connect(MONGO_URL, {useNewUrlParser:true,
 4. 모델 사용
 <<<<<<< HEAD
 
-### 요약하자면 
+### 요약
 > 1. 스키마정의
 > 2. 모델 생성
 > 3. DB 연결
 > 4. 모델 사용
-=======
->>>>>>> 4709714626be0b59bafc597810953b71007da791
+
